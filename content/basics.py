@@ -9,6 +9,50 @@ def basics(st):
     if not st.session_state.get("for_loop_val_gen"):
         st.session_state["for_loop_val_gen"] = for_loop_val_gen()
 
+    with st.expander("Variables"):
+        st.subheader("Overview")
+        st.markdown("""
+        Variables are used to store data. They are used to make code more readable and easier to understand. 
+        Variables are declared by assigning a value to a name. For example:
+        ```python
+        x = 5
+        ```
+        In the above example, `x` is the variable name and `5` is the value. Variables can be assigned to any data 
+        type. For example:
+        ```python
+        y = "hello world"
+        z = [1, 2, 3]
+        ```
+        In the above example, `y` is a string and `z` is a list. Variables can also be reassigned to a different value.
+        For example:
+        ```python
+        x = 5
+        x = 10
+        ```
+        In the above example, `x` is reassigned to `10`. Variables can also be used in expressions. For example:
+        ```python
+        x = 5
+        y = 10
+        z = x + y
+        ```
+        In the above example, `z` is assigned to the value of `x + y`, which is `15`. 
+        
+        <br>
+        """, unsafe_allow_html=True)
+
+        subsubheader(st, "Variable Naming Conventions")
+        st.markdown("""
+        Variable names can be any combination of letters, numbers, and underscores. However, they cannot start with a 
+        number. Variable names are also case sensitive. For example:
+        ```python
+        x = 5
+        X = 10
+        ```
+        In the above example, `x` and `X` are two different variables. 
+        
+        <br>
+        """, unsafe_allow_html=True)
+
     with st.expander("Default Data Types"):
         st.subheader("Overview")
         st.markdown("""
@@ -485,6 +529,43 @@ def basics(st):
                 - `is` differs to `==` in that `is` checks if two objects are the same object, whereas `==` checks if 
                 two objects have the same value (e.g. `1 == 1.0` equates to `True`)
             """)
+
+    with st.expander("If Statements"):
+        st.markdown("""
+        If statements are used to execute a block of code if a certain condition is met.
+        """)
+        st.code("""
+        x = 1
+        if x == 1:
+            print("x is equal to 1")
+        # Output: x is equal to 1
+        """)
+
+        st.markdown("""
+        If statements can also be chained together using `elif` and `else` statements.
+        """)
+        st.code("""
+        x = 1
+        if x == 1:
+            print("x is equal to 1")
+        elif x == 2:
+            print("x is equal to 2")
+        else:
+            print("x is not equal to 1 or 2")
+        # Output: x is equal to 1
+        """)
+
+        st.markdown("""
+        If statements can also be nested within each other.
+        """)
+        st.code("""
+        x = 1
+        y = 2
+        if x == 1:
+            if y == 2:
+                print("x is equal to 1 and y is equal to 2")
+        # Output: x is equal to 1 and y is equal to 2
+        """)
 
     with st.expander("Loops"):
         st.markdown("""

@@ -1,6 +1,3 @@
-import streamlit as st
-
-
 def for_loop_ind_gen():
     num = 0
     phase = 0

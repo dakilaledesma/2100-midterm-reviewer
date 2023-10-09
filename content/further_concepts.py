@@ -40,6 +40,55 @@ def further_concepts(st):
         information on these datatypes, please refer to the [Python Basics](#python-basics) section.
         """)
 
+        st.markdown("""
+        It is important to note that while *some* data types seem mutable, they can actually be immutable and may
+        be modifying/returning a copy/new object instead of modifying the original object. For example, the `str`
+        data type seems mutable, but is actually immutable. The following code demonstrates this:
+        """)
+
+        st.code("""
+        my_str = "Hello"
+        my_str[0] = "h"
+        # Output: TypeError: 'str' object does not support item assignment
+        """)
+
+        st.markdown("""
+        This is despite the fact that the `str` data type has a method called `replace`, or that you can concatenate
+        strings together using the `+` operator. These methods do not actually modify the original string, but instead
+        return a new string.
+        """)
+
+        mutable_col, immutable_col = st.columns(2)
+        with mutable_col:
+            subsubheader(st, "Mutable")
+            st.markdown("""
+            * `list`
+            * `dict`
+                - However, keys of a dictionary are immutable
+            * `set`
+            * `bytearray`
+            * `user-defined classes`
+            """)
+
+        with immutable_col:
+            subsubheader(st, "Immutable")
+            st.markdown("""
+            * `int`*
+            * `float`*
+            * `complex`*
+            * `bool`
+            * `str`
+            * `tuple`
+            * `range`
+            * `frozenset`
+            * `bytes`
+            """)
+
+            st.markdown("""
+            <sup>For more details on why these numeric data types are immutable (some in contrast to C, for example),
+            you may refer to [this answer](https://stackoverflow.com/a/37536770).</sup>
+            """, unsafe_allow_html=True)
+
     with st.expander("Multidimensional Collections"):
         st.markdown("""
         Python supports multidimensional collections. For example, you can have a list of lists, a list of tuples, a 
